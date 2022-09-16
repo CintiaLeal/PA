@@ -1,0 +1,27 @@
+//En el sistema
+public void seguirUsuario(String seguido, String seguidor){
+	
+	UsuarioJpaController ujpa = new UsuarioJpaController();
+	EntityManager em = ujpa.getEntityManager();
+	EntityTransaction t = em.getTransaction();
+	Usuario useguido = ujpa.findUsuario(seguido);
+	Usuario useguidor = ujpa.findUsuario(seguidor);
+	t.begin();
+	useguidor.seguirUsuario(useguido);
+	em.merge(useguidor);
+	t.commit();
+	em.close();
+
+}
+
+//En Usuario
+public void seguirUsuario(Usuario seguido){
+	
+	this.seguidos.add(seguido);
+	seguido.agregarSeguidor(this);
+}
+
+public void agregarSeguidor(Usuario seguidor){
+
+	this.seguidores.add(seguidor);
+}

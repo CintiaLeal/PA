@@ -1,0 +1,26 @@
+//En el sistema
+public void dejarDeSeguir(String seguido, String seguidor){
+
+	UsuarioJpaController ujpa = new UsuarioJpaController();
+	EntityManager em = ujpa.getEntityManager();
+	EntityTransaction t = em.getTransaction();
+	Usuario useguido = ujpa.findUsuario(seguido);
+	Usuario useguidor = ujpa.findUsuario(seguidor);
+	t.begin();
+	useguidor.dejarDeSeguirUsuario(useguido);
+	em.merge(useguido);
+	t.commit();
+	em.close();
+}
+
+//En el usuario
+public void dejarDeSeguirUsuario(Usuario seguido){
+
+	this.seguidos.remove(seguido.getNick());
+	seguido.quitarSeguidor(this);
+}
+
+public void quitarSeguidor(Usuario seguidor){
+
+	this.seguidores.remove(seguidor.getNick());
+}

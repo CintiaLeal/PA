@@ -1,0 +1,187 @@
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<style>
+    #logo{
+        background-color: rgba(130, 172, 159, .51);
+        width: 200px;
+        text-align: center;
+        color: #603B54;
+        border-radius: 20px;
+    }
+    h1{
+        font-size: 32px;
+    }
+    button{
+        width: 500px;
+    }
+    .nickName{
+        border-radius: 25px;
+        background-color: #82AC9F;
+    }
+
+    .btn{
+        height: 50px;
+        background-color: #82AC9F;
+    }
+    #seguir{
+        background-color: #603B54;
+    }
+    .btn{
+        width: 150px;
+    }
+    select{
+        height: 50px;
+    }
+</style>
+<body>
+    <div id="logo" class="p-2 m-4">
+        <b>CoronaTickets.uy</b>
+    </div>
+
+    <div >
+        <form id="form" class="row m-0 d-flex justify-content-center">
+            <input id="enviarArr" name="enviarArr" class="d-none"/>
+            <div class="col-12 d-flex justify-content-center mt-2 mb-4"><h1>Crear Espectaculo</h1></div>
+            <div class="col-11 row my-2">
+                <select id="cars" class="col-5 input-group-text" >
+                    <option value="volvo">Plataforma</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <h1 class="mx-5"> O </h1>
+                <select id="cars" class="col-5 input-group-text" >
+                    <option value="volvo">Plataforma</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </div>
+            <div class="col-11 row my-2 ">
+                <div class="col-5 d-flex justify-content-center">
+                    <button class="col-5 btn rounded">Seleccionar</button>
+                </div>
+                <div class="mx-5"></div>
+                <div class="col-5 d-flex justify-content-center">
+                    <button class="col-5 btn rounded">Seleccionar</button>
+                </div>
+            </div>
+
+            <div class="col-11 row my-2">
+                <select id="cars" class="col-5 input-group-text" >
+                    <option value="volvo">Plataforma</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+
+                <button class=" ml-5 col-3 btn rounded">Seleccionar</button>
+            </div>
+
+            <div class="col-11 row my-2">
+                <select id="cars" class="col-5 input-group-text" >
+                    <option value="volvo">Plataforma</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+
+                <button class=" ml-5 col-3 btn rounded">Seleccionar</button>
+            </div>
+ <!-- IMPORTANTE ACA ESTA LA FUNCIONALIDAD -->
+            <div class="col-11 row my-2">
+                <select id="registros" class="col-5 input-group-text" >
+                    <option value="registro1">Registro1</option>
+                    <option value="registro2">Registro2</option>
+                    <option value="registro3">Registro3</option>
+                    <option value="registro4">Registro4</option>
+                </select>
+                <h1 class="mx-5"> O </h1>
+                <select id="paquetes" class="col-5 input-group-text" >
+                    <option value="paquete1">paquete1</option>
+                    <option value="paquete2">paquete2</option>
+                    <option value="paquete3">paquete3</option>
+                    <option value="paquete4">paquete4</option>
+                </select>
+            </div>
+            <div class="col-11 row my-2 ">
+                <div class="col-5 d-flex justify-content-center">
+                    <button id="seleccionarRegistro" class="col-5 btn rounded">Seleccionar</button>
+                </div>
+                <div class="mx-5"></div>
+                <div class="col-5 d-flex justify-content-center">
+                    <button id="seleccionarPaquete" class="col-5 btn rounded">Seleccionar</button>
+                </div>
+            </div>
+
+            <div style="height: 150px;" id="divMostrar" class="col-3 rounded">
+                <!-- MOSTRAR LOS USUARIOS SELECCIONADOS -->
+            </div>
+            
+            <div style="margin-top: 50px;" class="col-8 d-flex justify-content-end alig-items-center">
+                <button type="submit" class="btn mr-3">Aceptar</button>
+                <button class="btn ml-3">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+<script type="text/javascript">
+    let form = document.getElementById("form");
+    let enviarArr = document.getElementById("enviarArr");
+
+    let btnRegistro = document.getElementById("seleccionarRegistro");
+    let btnPaquete = document.getElementById("seleccionarPaquete");
+
+    let divMostrar = document.getElementById("divMostrar");
+    let registroNuevo = document.getElementById("registros");
+    let paqueteNuevo = document.getElementById("paquetes");
+    
+    let arr = []
+    btnRegistro.addEventListener("click", e => {
+        e.preventDefault();
+        if(!divMostrar.value){ //Si el valor del div es undefined => significa que no hay nada guardado
+            divMostrar.innerHTML += registroNuevo.value + "<br/>";
+            divMostrar.value = "registro";
+            arr.push(registroNuevo.value);
+        }
+
+        else if (divMostrar.value != "registro registro registro" && divMostrar.value != "paquete"){
+            divMostrar.value+= " registro";
+            divMostrar.innerHTML += registroNuevo.value + "<br/>";
+            arr.push(registroNuevo.value);
+        }
+    })
+
+    btnPaquete.addEventListener("click", e => {
+        e.preventDefault();
+        if(!divMostrar.value){ //Si el valor del div es undefined => significa que no hay nada guardado
+            divMostrar.innerHTML += paqueteNuevo.value + "<br/>";
+            divMostrar.value = "paquete";
+            arr.push(paqueteNuevo.value);
+        }
+    })
+
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        
+        enviarArr.value = arr;
+        if(divMostrar.value === "registro registro registro"){
+            form.submit();
+        }
+        else if(divMostrar.value === "paquete"){
+            form.submit();
+        }
+        else if(divMostrar.value === undefined){
+            form.submit();
+        }
+    })
+
+</script>
+
+</html>

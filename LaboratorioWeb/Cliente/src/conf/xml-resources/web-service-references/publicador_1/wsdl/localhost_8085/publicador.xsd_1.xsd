@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (https://github.com/eclipse-ee4j/metro-jax-ws). RI's version is Metro/2.4.4 (RELEASE-2.4.4-ce05bec; 2020-04-17T12:44:48+0000) JAXWS-RI/2.3.3 JAXWS-API/2.3.3 JAXB-RI/2.3.3 JAXB-API/2.3.3 git-revision#unknown. --><xs:schema xmlns:tns="http://complejoservidor/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://complejoservidor/">
+
+<xs:element name="DocumentException" type="tns:DocumentException"/>
+
+<xs:element name="FileNotFoundException" type="tns:FileNotFoundException"/>
+
+<xs:element name="ParseException" type="tns:ParseException"/>
+
+<xs:complexType name="listString">
+<xs:sequence>
+<xs:element name="lista" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listPaquete">
+<xs:sequence>
+<xs:element name="paquetes" type="tns:dtPaquetes" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtPaquetes">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listBusqueda">
+<xs:sequence>
+<xs:element name="busquedas" type="tns:dtBusqueda" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtBusqueda">
+<xs:sequence>
+<xs:element name="categorias" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="plataformas" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ParseException">
+<xs:sequence>
+<xs:element name="errorOffset" type="xs:int"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtEspectaculo">
+<xs:sequence>
+<xs:element name="artista" type="tns:dtArtista" minOccurs="0"/>
+<xs:element name="cantPremios" type="xs:int" minOccurs="0"/>
+<xs:element name="descPremio" type="xs:string" minOccurs="0"/>
+<xs:element name="estado" type="tns:estado" minOccurs="0"/>
+<xs:element name="funciones" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="puntajes" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtArtista">
+<xs:complexContent>
+<xs:extension base="tns:dtUsuario">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="dtUsuario">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="dtFunciones">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="FileNotFoundException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DocumentException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listPlataforma">
+<xs:sequence>
+<xs:element name="plataformas" type="tns:dtPlataforma" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtPlataforma">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="dtEspectador">
+<xs:complexContent>
+<xs:extension base="tns:dtUsuario">
+<xs:sequence>
+<xs:element name="favoritos" type="tns:espectaculo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="paquetes" type="tns:paquete" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="premios" type="tns:premio" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="registros" type="tns:registro" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="espectaculo">
+<xs:sequence>
+<xs:element name="a" type="tns:artista" minOccurs="0"/>
+<xs:element name="cantMaxEsp" type="xs:int"/>
+<xs:element name="cantMinEsp" type="xs:int"/>
+<xs:element name="cantPremios" type="xs:int" minOccurs="0"/>
+<xs:element name="categorias" type="tns:espectaculoCategoria" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="costo" type="xs:double"/>
+<xs:element name="descPremio" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="duracion" type="xs:int"/>
+<xs:element name="e" type="tns:estado" minOccurs="0"/>
+<xs:element name="estado" type="tns:estado" minOccurs="0"/>
+<xs:element name="fechaRegistro" type="xs:string" minOccurs="0"/>
+<xs:element name="funciones" type="tns:funciones" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="img" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="paquetes" type="tns:paquete" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="puntajes" type="tns:puntaje" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="url" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="artista">
+<xs:complexContent>
+<xs:extension base="tns:usuario">
+<xs:sequence>
+<xs:element name="bio" type="xs:string" minOccurs="0"/>
+<xs:element name="desc" type="xs:string" minOccurs="0"/>
+<xs:element name="link" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="usuario">
+<xs:sequence>
+<xs:element name="apellido" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaNac" type="xs:string" minOccurs="0"/>
+<xs:element name="img" type="xs:string" minOccurs="0"/>
+<xs:element name="nick" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="pwd" type="xs:string" minOccurs="0"/>
+<xs:element name="seguidores" type="tns:usuario" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="seguidos" type="tns:usuario" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espectaculoCategoria">
+<xs:sequence>
+<xs:element name="cat" type="tns:categoria" minOccurs="0"/>
+<xs:element name="e" type="tns:espectaculo" minOccurs="0"/>
+<xs:element name="id_categoria" type="xs:string" minOccurs="0"/>
+<xs:element name="id_espectaculo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="categoria">
+<xs:sequence>
+<xs:element name="espectaculos" type="tns:espectaculoCategoria" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="funciones">
+<xs:sequence>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaRegistro" type="xs:string" minOccurs="0"/>
+<xs:element name="hora" type="xs:string" minOccurs="0"/>
+<xs:element name="img" type="xs:string" minOccurs="0"/>
+<xs:element name="maxRegs" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="registros" type="tns:registro" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registro">
+<xs:sequence>
+<xs:element name="espectador" type="tns:espectador" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="funciones" type="tns:funciones" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="espectador">
+<xs:complexContent>
+<xs:extension base="tns:usuario">
+<xs:sequence>
+<xs:element name="favoritos" type="tns:espectaculo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="paquetes" type="tns:paquete" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="premios" type="tns:premio" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="registros" type="tns:registro" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="paquete">
+<xs:sequence>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="descuento" type="xs:double" minOccurs="0"/>
+<xs:element name="espectaculos" type="tns:espectaculo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="fechaA" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaF" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaI" type="xs:string" minOccurs="0"/>
+<xs:element name="img" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="premio">
+<xs:sequence>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="espectaculo" type="tns:espectaculo" minOccurs="0"/>
+<xs:element name="espectador" type="tns:espectador" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="funcion" type="tns:funciones" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="puntaje">
+<xs:sequence>
+<xs:element name="espectador" type="tns:espectador" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="puntaje" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="estado">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ingresado"/>
+<xs:enumeration value="aceptado"/>
+<xs:enumeration value="rechazado"/>
+<xs:enumeration value="finalizado"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
