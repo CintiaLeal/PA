@@ -1,0 +1,11 @@
+Para el war:
+
+cd C:\Users\romil\Desktop\UTEC\4to semestre\Programacion de Aplicaciones\LABORATORIOS\Laboratorio-3\LaboratorioWeb\paginaWeb
+jar cvf paginaWeb.war
+move pagina.war C:\Users\romil\Downloads\apache-tomcat-8.5.71\apache-tomcat-8.5.71\webapps
+catalina start
+
+Para el jar:
+
+cd C:\Users\romil\Desktop\UTEC\4to semestre\Programacion de Aplicaciones\LABORATORIOS\Laboratorio-3\LaboratorioWeb\Estacion de trabajo
+jar cfm estaciondetrabajo.jar manifest.mf *
